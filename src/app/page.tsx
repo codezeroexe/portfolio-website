@@ -39,16 +39,14 @@ export default function Home() {
           </h2>
           <div className="max-w-3xl mx-auto text-lg text-muted-foreground leading-relaxed">
             <p className="mb-4">
-              I'm a passionate developer with experience building modern web applications.
-              I love turning complex problems into simple, beautiful, and intuitive solutions.
+              I'm a {new Date().getFullYear() - 2006}-year-old developer from Kerala, South India, currently pursuing Artificial Intelligence at Symbiosis, Pune. My work sits at the intersection of creative expression and technical precision.
             </p>
             <p>
-              My tech stack includes React, Next.js, TypeScript, Node.js, and various
-              modern frameworks. I'm always learning and exploring new technologies.
+              I build with Python, JavaScript, Java, and React — focusing on AI systems, neural networks, deep learning, web development, and web design. Digital art and design are where I experiment with the creative side of code, bringing visual ideas to life through technology.
             </p>
           </div>
           <div className="flex flex-wrap gap-2 justify-center mt-8">
-            {["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Shadcn UI"].map((tech) => (
+            {["React", "Next.js", "TypeScript", "Java", "Python", "Web Design", "AI/ML"].map((tech) => (
               <Badge key={tech} variant="secondary">{tech}</Badge>
             ))}
           </div>
