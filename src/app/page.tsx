@@ -8,6 +8,8 @@ import { Separator } from "@/components/ui/separator"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { SocialButtons } from "@/components/social-buttons"
 import { EtheralShadow } from "@/components/etheral-shadow";
+import { ProjectCard } from "@/components/project-card";
+
 
 
 export default function Home() {
@@ -61,37 +63,30 @@ export default function Home() {
       <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              title: "E-Commerce Platform",
-              description: "Full-stack online store with cart, checkout, and payment integration.",
-              tags: ["Next.js", "Stripe", "PostgreSQL"],
-            },
-            {
-              title: "Task Management App",
-              description: "Collaborative project management tool with real-time updates.",
-              tags: ["React", "Socket.io", "MongoDB"],
-            },
-            {
-              title: "AI Content Generator",
-              description: "AI-powered tool for generating blog posts and social media content.",
-              tags: ["Next.js", "OpenAI", "Tailwind"],
-            },
-          ].map((project) => (
-            <Card key={project.title} className="flex flex-col">
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-1 flex items-end">
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <Badge key={tag} variant="outline">{tag}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+          <ProjectCard
+            title="E-Commerce Platform"
+            description="Full-stack online store with cart, checkout, and payment integration."
+            tags={["Next.js", "Stripe", "PostgreSQL"]}
+            githubUrl="https://github.com"
+            liveUrl="https://example.com"
+            image="https://images.unsplash.com/photo-1556742049-0df2ed2aa9e?w=800"
+          />
+          <ProjectCard
+            title="Task Management App"
+            description="Collaborative project management tool with real-time updates."
+            tags={["React", "Socket.io", "MongoDB"]}
+            githubUrl="https://github.com"
+            liveUrl="https://example.com"
+            image="https://images.unsplash.com/photo-1611224929853-cb774a21a39?w=800"
+          />
+          <ProjectCard
+            title="AI Content Generator"
+            description="AI-powered tool for generating blog posts and social media content."
+            tags={["Next.js", "OpenAI", "Tailwind"]}
+            githubUrl="https://github.com"
+            liveUrl="https://example.com"
+            image="https://images.unsplash.com/photo-1677449651547-ba2acef54a?w=800"
+          />
         </div>
       </section>
 
