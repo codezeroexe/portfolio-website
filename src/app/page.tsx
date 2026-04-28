@@ -7,8 +7,29 @@ import { Separator } from "@/components/ui/separator";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SocialButtons } from "@/components/social-buttons";
 import { ProjectCard } from "@/components/project-card";
+import { useEffect, useState } from "react";
+
+interface InstagramPost {
+  id: string;
+  media_url: string;
+  permalink: string;
+  caption?: string;
+}
 
 export default function Home() {
+  const [posts, setPosts] = useState<InstagramPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/instagram")
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data.posts || []);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
+
   return (
     <main className="relative min-h-screen">
         {/* Hero Section */}
@@ -89,16 +110,36 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
             <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Instagram</span> Art
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Replace with real Instagram API data */}
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="border border-[#EAEAEA] rounded-lg overflow-hidden bg-white dark:bg-[#1A1A1A]">
-                <div className="aspect-square bg-muted flex items-center justify-center text-muted-foreground">
-                  Instagram Post {i}
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="border border-[#EAEAEA] rounded-lg overflow-hidden bg-white dark:bg-[#1A1A1A]">
+                  <div className="aspect-square bg-muted animate-pulse" />
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {posts.slice(0, 3).map((post) => (
+                <a
+                  key={post.id}
+                  href={post.permalink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-[#EAEAEA] rounded-lg overflow-hidden bg-white dark:bg-[#1A1A1A] block hover:shadow-lg transition-shadow"
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={post.media_url}
+                      alt={post.caption || "Instagram post"}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
         </section>
 
         <Separator />
