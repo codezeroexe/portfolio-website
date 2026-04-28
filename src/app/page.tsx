@@ -54,11 +54,9 @@ const projects: Project[] = [
 ];
 
 export default function Home() {
-  const projectsRef = useRef<HTMLElement>(null);
-  const contactRef = useRef<HTMLElement>(null);
-
-  const scrollTo = (ref: React.RefObject<HTMLElement | null>) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -76,8 +74,8 @@ export default function Home() {
             Full-Stack Developer & Designer building modern web experiences
           </p>
           <div className="flex gap-4">
-            <Button onClick={() => scrollTo(projectsRef)}>View My Work</Button>
-            <Button variant="outline" onClick={() => scrollTo(contactRef)}>Get In Touch</Button>
+            <Button onClick={() => scrollTo('projects')}>View My Work</Button>
+            <Button variant="outline" onClick={() => scrollTo('contact')}>Get In Touch</Button>
             <ThemeToggle />
           </div>
         </section>
@@ -107,7 +105,7 @@ export default function Home() {
         <Separator />
 
         {/* Projects Section */}
-        <section id="projects" ref={projectsRef} className="container mx-auto px-4 py-16 md:py-24">
+        <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             GitHub <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Projects</span>
           </h2>
