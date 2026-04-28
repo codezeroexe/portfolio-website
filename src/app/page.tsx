@@ -142,7 +142,7 @@ export default function Home() {
             Have a project in mind or want to collaborate? Feel free to reach out!
           </p>
           <div className="flex justify-center gap-4">
-            <Button onClick={() => window.location.href = 'mailto:sreehari@example.com'}>Email Me</Button>
+            <Button onClick={() => window.location.href = 'mailto:sreeharisreelakam06@gmail.com'}>Email Me</Button>
             <SocialButtons />
           </div>
         </section>
