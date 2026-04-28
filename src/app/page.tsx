@@ -7,7 +7,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { SocialButtons } from "@/components/social-buttons"
-import { EtheralShadow } from "@/components/etheral-shadow";
 import { ProjectCard } from "@/components/project-card";
 
 
@@ -15,7 +14,6 @@ import { ProjectCard } from "@/components/project-card";
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
-      <EtheralShadow />
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-24 md:py-32 flex flex-col items-center text-center">
         <Avatar className="h-32 w-32 mb-6">
