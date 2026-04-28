@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
+import { Inter, Gluten } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
 
@@ -9,16 +8,10 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const melodrama = localFont({
-  src: [
-    {
-      path: "../fonts/Melodrama-Variable.ttf",
-      weight: "200 700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-melodrama",
-  display: "swap",
+const gluten = Gluten({
+  variable: "--font-gluten",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${melodrama.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${gluten.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider>{children}</ThemeProvider>
       </body>

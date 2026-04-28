@@ -13,12 +13,12 @@ export default function Home() {
     <main className="relative min-h-screen">
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center min-h-screen text-center px-4">
-          <Avatar className="h-32 w-32 mb-6">
+          <Avatar className="h-64 w-64 mb-6">
             <AvatarImage src="/avatar.jpg" alt="Sreehari" />
-            <AvatarFallback className="text-4xl">S</AvatarFallback>
+            <AvatarFallback className="text-8xl">S</AvatarFallback>
           </Avatar>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-            Hi, I'm <span className="font-[family-name:var(--font-melodrama)] text-primary">Hari</span>
+          <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-4">
+            Hi, I'm <span className="font-[family-name:var(--font-gluten)] text-primary" style={{ fontSize: '130%' }}>Hari</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl">
             Full-Stack Developer & Designer building modern web experiences
@@ -34,8 +34,8 @@ export default function Home() {
 
         {/* About Section */}
         <section id="about" className="container mx-auto px-4 py-16 md:py-24">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            About <span className="font-[family-name:var(--font-melodrama)]">Me</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+            About <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Me</span>
           </h2>
           <div className="max-w-3xl mx-auto text-lg text-muted-foreground leading-relaxed">
             <p className="mb-4">
@@ -88,8 +88,8 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="container mx-auto px-4 py-16 md:py-24 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Get In <span className="font-[family-name:var(--font-melodrama)]">Touch</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Get In <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Touch</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
             Have a project in mind or want to collaborate? Feel free to reach out!
