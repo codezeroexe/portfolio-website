@@ -1,14 +1,20 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "default",
+  "style": "new-york",
   "rsc": true,
   "tsx": true,
   "tailwind": {
-    "config": ""
+    "config": "",
+    "css": "src/app/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true
   },
+  "iconLibrary": "remixicon",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils"
   },
-  "iconLibrary": "remixicon"
+  "registries": {
+    "@reui": "https://reui.io/r/{style}/{name}.json"
+  }
 }
