@@ -11,7 +11,7 @@ const inter = Inter({
 const gluten = Gluten({
   variable: "--font-gluten",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "800",
 });
 
 export const metadata: Metadata = {
