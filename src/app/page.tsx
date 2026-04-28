@@ -13,7 +13,7 @@ import { EtheralShadow } from "@/components/ui/etheral-shadow";
 export default function Home() {
   return (
     <main className="relative min-h-screen">
-      {/* Bottom: ethereal background */}
+      {/* Bottom layer: ethereal background */}
       <EtheralShadow
         color="rgba(128, 128, 128, 1)"
         animation={{ scale: 100, speed: 90 }}
@@ -22,8 +22,8 @@ export default function Home() {
         style={{ zIndex: 0 }}
       />
 
-      {/* Top: all UI content */}
-      <div className="relative z-10">
+      {/* Top layer: all UI content */}
+      <div className="relative z-20">
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center min-h-screen text-center px-4">
           <Avatar className="h-32 w-32 mb-6">
