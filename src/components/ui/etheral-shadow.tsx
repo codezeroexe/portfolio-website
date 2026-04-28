@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef, useId, useEffect } from "react";
-import { animate, useMotionValue, AnimationPlaybackControls } from "framer-motion";
 
 interface EtheralShadowProps {
   color?: string;
@@ -40,32 +39,34 @@ export function EtheralShadow({
   const id = useInstanceId();
   const animationEnabled = animation && animation.scale > 0;
   const feColorMatrixRef = useRef<SVGFEColorMatrixElement>(null);
-  const hueRotateMotionValue = useMotionValue(180);
-  const hueRotateAnimation = useRef<AnimationPlaybackControls | null>(null);
+  const animFrameRef = useRef<number>(0);
+  const startTimeRef = useRef<number>(0);
 
   const displacementScale = animation ? mapRange(animation.scale, 1, 100, 20, 100) : 0;
   const animationDuration = animation ? mapRange(animation.speed, 1, 100, 1000, 50) : 1;
 
   useEffect(() => {
-    if (feColorMatrixRef.current && animationEnabled) {
-      if (hueRotateAnimation.current) hueRotateAnimation.current.stop();
-      hueRotateMotionValue.set(0);
-      hueRotateAnimation.current = animate(hueRotateMotionValue, 360, {
-        duration: animationDuration / 25,
-        repeat: Infinity,
-        repeatType: "loop",
-        ease: "linear",
-        onUpdate: (value: number) => {
-          if (feColorMatrixRef.current) {
-            feColorMatrixRef.current.setAttribute("values", String(value));
-          }
-        },
-      });
-      return () => {
-        if (hueRotateAnimation.current) hueRotateAnimation.current.stop();
-      };
-    }
-  }, [animationEnabled, animationDuration, hueRotateMotionValue]);
+    if (!animationEnabled || !feColorMatrixRef.current) return;
+
+    const feColorMatrix = feColorMatrixRef.current;
+    startTimeRef.current = performance.now();
+
+    const animate = (currentTime: number) => {
+      const elapsed = (currentTime - startTimeRef.current) % animationDuration;
+      const progress = elapsed / animationDuration;
+      const hueRotate = progress * 360;
+
+      feColorMatrix.setAttribute("values", String(hueRotate));
+
+      animFrameRef.current = requestAnimationFrame(animate);
+    };
+
+    animFrameRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+    };
+  }, [animationEnabled, animationDuration]);
 
   return (
     <div
@@ -86,7 +87,7 @@ export function EtheralShadow({
         }}
       >
         {animationEnabled && (
-          <svg style={{ position: "absolute" }}>
+          <svg style={{ position: "absolute", width: 0, height: 0 }}>
             <defs>
               <filter id={id}>
                 <feTurbulence
@@ -100,7 +101,7 @@ export function EtheralShadow({
                   ref={feColorMatrixRef}
                   in="undulation"
                   type="hueRotate"
-                  values="180"
+                  values="0"
                 />
                 <feDisplacementMap
                   in="SourceGraphic"
