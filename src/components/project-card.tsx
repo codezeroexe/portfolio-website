@@ -9,21 +9,11 @@ interface Project {
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
-  image?: string;
 }
 
-export function ProjectCard({ title, description, tags, liveUrl, githubUrl, image }: Project) {
+export function ProjectCard({ title, description, tags, liveUrl, githubUrl }: Project) {
   return (
-    <Card className="flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300">
-      {image && (
-        <div className="relative h-48 overflow-hidden bg-muted">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-        </div>
-      )}
+    <Card className="flex flex-col hover:shadow-lg transition-all duration-300">
       <CardHeader>
         <CardTitle className="text-xl">{title}</CardTitle>
         <CardDescription className="text-base">{description}</CardDescription>

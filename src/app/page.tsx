@@ -78,7 +78,6 @@ export default function Home() {
             tags={["Next.js", "Stripe", "PostgreSQL"]}
             githubUrl="https://github.com"
             liveUrl="https://example.com"
-            image="https://images.unsplash.com/photo-1556742049-0df2ed2aa9e?w=800"
           />
           <ProjectCard
             title="Task Management App"
@@ -86,7 +85,6 @@ export default function Home() {
             tags={["React", "Socket.io", "MongoDB"]}
             githubUrl="https://github.com"
             liveUrl="https://example.com"
-            image="https://images.unsplash.com/photo-1611224929853-cb774a21a39?w=800"
           />
           <ProjectCard
             title="AI Content Generator"
@@ -94,7 +92,6 @@ export default function Home() {
             tags={["Next.js", "OpenAI", "Tailwind"]}
             githubUrl="https://github.com"
             liveUrl="https://example.com"
-            image="https://images.unsplash.com/photo-1677449651547-ba2acef54a?w=800"
           />
         </div>
       </section>
