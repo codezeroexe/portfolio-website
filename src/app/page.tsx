@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { SocialButtons } from "@/components/social-buttons"
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
           <Button onClick={() => window.location.href = '#projects'}>View My Work</Button>
           <Button variant="outline" onClick={() => window.location.href = '#contact'}>Get In Touch</Button>
           <ThemeToggle />
+          <SocialButtons />
         </div>
       </section>
 
