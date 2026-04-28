@@ -16,8 +16,8 @@ export function EtheralShadow() {
     let time = 0;
 
     const resize = () => {
-      canvas!.width = window.innerWidth;
-      canvas!.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     };
     resize();
     window.addEventListener("resize", resize);
