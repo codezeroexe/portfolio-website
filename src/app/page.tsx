@@ -103,7 +103,6 @@ export default function Home() {
             © {new Date().getFullYear()} Hari. All rights reserved.
           </div>
         </footer>
-      </div>
     </main>
   );
 }
