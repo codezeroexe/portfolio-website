@@ -111,14 +111,14 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             GitHub <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Projects</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto auto-rows-fr">
             {projects.map((project) => (
               <a
                 key={project.id}
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block hover:shadow-lg transition-shadow"
+                className="block hover:shadow-lg transition-shadow h-full"
               >
                 <ArticleCard
                   headline={project.headline}
