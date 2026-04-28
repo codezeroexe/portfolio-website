@@ -25,7 +25,7 @@ const projects: Project[] = [
     excerpt: "AI-powered fraud detection system using neural networks and deep learning",
     tags: ["Python", "TensorFlow", "AI/ML", "Neural Networks"],
     githubUrl: "https://github.com/codezeroexe/neural-fraud-detector-v2",
-    publishedAt: new Date("2025-10-01"),
+    publishedAt: new Date("2026-04-22"),
   },
   {
     id: "2",
@@ -33,7 +33,7 @@ const projects: Project[] = [
     excerpt: "Interactive walking simulator built with modern web technologies",
     tags: ["JavaScript", "Three.js", "WebGL", "Game Dev"],
     githubUrl: "https://github.com/codezeroexe/walking-sim",
-    publishedAt: new Date("2025-08-15"),
+    publishedAt: new Date("2026-03-08"),
   },
   {
     id: "3",
@@ -41,7 +41,7 @@ const projects: Project[] = [
     excerpt: "Interactive algorithm visualization tool for learning data structures and algorithms",
     tags: ["React", "TypeScript", "D3.js", "Education"],
     githubUrl: "https://github.com/codezeroexe/algo-visualizer",
-    publishedAt: new Date("2025-06-20"),
+    publishedAt: new Date("2026-03-04"),
   },
   {
     id: "4",
@@ -49,7 +49,7 @@ const projects: Project[] = [
     excerpt: "Symbiosis path management system for academic and research collaboration",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Full-Stack"],
     githubUrl: "https://github.com/codezeroexe/symbiPath",
-    publishedAt: new Date("2025-11-15"),
+    publishedAt: new Date("2026-04-20"),
   },
 ];
 
