@@ -49,7 +49,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
   const hasFooter = writer || publishedAt;
 
   return (
-    <Card className="flex w-full max-w-sm flex-col gap-3 overflow-hidden rounded-3xl border p-3 shadow-lg">
+    <Card className="flex w-full flex-col gap-3 overflow-hidden rounded-3xl border p-3 shadow-lg">
       <CardContent className="flex-grow p-3">
         {hasMeta && (
           <div className="mb-4 flex items-center text-sm text-muted-foreground">
