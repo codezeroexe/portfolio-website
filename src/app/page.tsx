@@ -9,22 +9,24 @@ import { SocialButtons } from "@/components/social-buttons";
 import { ProjectCard } from "@/components/project-card";
 import { useEffect, useState } from "react";
 
-interface InstagramPost {
+interface GitHubRepo {
   id: string;
-  media_url: string;
-  permalink: string;
-  caption?: string;
+  name: string;
+  description: string;
+  tags: string[];
+  githubUrl: string;
+  liveUrl: string;
 }
 
 export default function Home() {
-  const [posts, setPosts] = useState<InstagramPost[]>([]);
+  const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/instagram")
+    fetch("/api/github")
       .then((res) => res.json())
       .then((data) => {
-        setPosts(data.posts || []);
+        setRepos(data.projects || []);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -77,66 +79,40 @@ export default function Home() {
 
         {/* Projects Section */}
         <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ProjectCard
-              title="E-Commerce Platform"
-              description="Full-stack online store with cart, checkout, and payment integration."
-              tags={["Next.js", "Stripe", "PostgreSQL"]}
-              githubUrl="https://github.com"
-              liveUrl="https://example.com"
-            />
-            <ProjectCard
-              title="Task Management App"
-              description="Collaborative project management tool with real-time updates."
-              tags={["React", "Socket.io", "MongoDB"]}
-              githubUrl="https://github.com"
-              liveUrl="https://example.com"
-            />
-            <ProjectCard
-              title="AI Content Generator"
-              description="AI-powered tool for generating blog posts and social media content."
-              tags={["Next.js", "OpenAI", "Tailwind"]}
-              githubUrl="https://github.com"
-              liveUrl="https://example.com"
-            />
-          </div>
-        </section>
-
-        <Separator />
-
-        {/* Instagram Art Section */}
-        <section id="instagram" className="container mx-auto px-4 py-16 md:py-24">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-            <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Instagram</span> Art
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            GitHub <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Projects</span>
           </h2>
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="border border-[#EAEAEA] rounded-lg overflow-hidden bg-white dark:bg-[#1A1A1A]">
-                  <div className="aspect-square bg-muted animate-pulse" />
+                <div key={i} className="border border-[#EAEAEA] rounded-lg p-8 bg-white dark:bg-[#1A1A1A]">
+                  <div className="h-6 w-48 bg-muted animate-pulse rounded mb-4" />
+                  <div className="h-4 bg-muted animate-pulse rounded mb-4" />
+                  <div className="flex gap-2">
+                    <div className="h-6 w-16 bg-muted animate-pulse rounded-full" />
+                    <div className="h-6 w-20 bg-muted animate-pulse rounded-full" />
+                  </div>
                 </div>
               ))}
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.slice(0, 3).map((post) => (
-                <a
-                  key={post.id}
-                  href={post.permalink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-[#EAEAEA] rounded-lg overflow-hidden bg-white dark:bg-[#1A1A1A] block hover:shadow-lg transition-shadow"
-                >
-                  <div className="aspect-square overflow-hidden">
-                    <img
-                      src={post.media_url}
-                      alt={post.caption || "Instagram post"}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
+              {repos.map((repo) => (
+                <div key={repo.id} className="border border-[#EAEAEA] rounded-lg p-8 bg-white dark:bg-[#1A1A1A] hover:shadow-lg transition-shadow">
+                  <h3 className="text-xl font-bold mb-3">{repo.name}</h3>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{repo.description}</p>
+                  <div className="flex gap-2 flex-wrap mb-4">
+                    {repo.tags.map((tag: string) => (
+                      <span key={tag} className="text-xs border border-[#EAEAEA] rounded-full px-3 py-1">{tag}</span>
+                    ))}
                   </div>
-                </a>
+                  <div className="flex gap-2">
+                    <a href={repo.githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm hover:underline">GitHub</a>
+                    {repo.liveUrl && (
+                      <a href={repo.liveUrl} target="_blank" rel="noopener noreferrer" className="text-sm hover:underline">Live Demo</a>
+                    )}
+                  </div>
+                </div>
               ))}
             </div>
           )}
@@ -155,6 +131,9 @@ export default function Home() {
           <div className="flex justify-center gap-4">
             <Button onClick={() => window.location.href = 'mailto:sreehari@example.com'}>Email Me</Button>
             <SocialButtons />
+            <Button variant="outline" onClick={() => window.location.href = 'https://www.instagram.com/code.zxro/'}>
+              Instagram
+            </Button>
           </div>
         </section>
 
