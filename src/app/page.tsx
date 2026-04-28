@@ -86,6 +86,36 @@ export default function Home() {
 
         <Separator />
 
+        {/* Instagram Art Section */}
+        <section id="instagram" className="container mx-auto px-4 py-16 md:py-24">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+            <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Instagram</span> Art
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              'https://images.unsplash.com/photo-1618005182475?w=400&h=400&fit=crop',
+              'https://images.unsplash.com/photo-1541961017774-49094a54b5a?w=400&h=400&fit=crop',
+              'https://images.unsplash.com/photo-1513475382585-d06e58b067a5?w=400&h=400&fit=crop',
+              'https://images.unsplash.com/photo-1557683316-973673baf926?w=400&h=400&fit=crop',
+              'https://images.unsplash.com/photo-1579546929518-7e594785ab97?w=400&h=400&fit=crop',
+              'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=400&fit=crop',
+              'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop',
+              'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=400&fit=crop',
+            ].map((src, i) => (
+              <div key={i} className="aspect-square overflow-hidden rounded-lg border border-[#EAEAEA]">
+                <img
+                  src={src}
+                  alt={`Instagram art ${i + 1}`}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <Separator />
+
         {/* Contact Section */}
         <section id="contact" className="container mx-auto px-4 py-16 md:py-24 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
