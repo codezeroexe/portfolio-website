@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <div className="flex gap-4">
           <Button onClick={() => window.location.href = '#projects'}>View My Work</Button>
           <Button variant="outline" onClick={() => window.location.href = '#contact'}>Get In Touch</Button>
+          <ThemeToggle />
         </div>
       </section>
 
