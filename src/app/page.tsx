@@ -27,7 +27,6 @@ export default function Home() {
           <Button onClick={() => window.location.href = '#projects'}>View My Work</Button>
           <Button variant="outline" onClick={() => window.location.href = '#contact'}>Get In Touch</Button>
           <ThemeToggle />
-          <SocialButtons />
         </div>
       </section>
 
@@ -103,8 +102,7 @@ export default function Home() {
         </p>
         <div className="flex justify-center gap-4">
           <Button onClick={() => window.location.href = 'mailto:hari@example.com'}>Email Me</Button>
-          <Button variant="outline" onClick={() => window.open('https://github.com', '_blank')}>GitHub</Button>
-          <Button variant="outline" onClick={() => window.open('https://linkedin.com', '_blank')}>LinkedIn</Button>
+          <SocialButtons />
         </div>
       </section>
 
