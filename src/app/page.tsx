@@ -71,7 +71,7 @@ export default function Home() {
             Hi, I'm <span className="font-[family-name:var(--font-gluten)] text-primary" style={{ fontSize: '130%' }}>Hari</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl">
-            Full-Stack Developer & Designer building modern web experiences
+            AI developer from Kerala, building with Python, JS, Java & React. Currently studying AI at Symbiosis, Pune.
           </p>
           <div className="flex gap-4">
             <Button onClick={() => scrollTo('projects')}>View My Work</Button>
