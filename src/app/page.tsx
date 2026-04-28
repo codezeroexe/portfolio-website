@@ -139,7 +139,7 @@ export default function Home() {
             Get In <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Touch</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out!
+            Reach out on LinkedIn, check my GitHub and Instagram, or drop an email.
           </p>
           <div className="flex justify-center gap-4">
             <Button onClick={() => window.location.href = 'mailto:sreeharisreelakam06@gmail.com'}>Email Me</Button>
