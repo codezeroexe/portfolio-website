@@ -7,6 +7,39 @@
 - Remix Icons (social icons)
 - next-themes (dark/light toggle)
 
+## Online Sources for UI Elements
+
+### Core Framework
+- **Next.js**: https://nextjs.org/docs
+- **Tailwind CSS v4**: https://tailwindcss.com/docs
+- **TypeScript**: https://www.typescriptlang.org/docs/
+
+### Component Libraries
+- **Shadcn UI**: https://ui.shadcn.com/docs/components/button
+  - `Button`: https://ui.shadcn.com/docs/components/button
+  - `Card`: https://ui.shadcn.com/docs/components/card
+  - `Badge`: https://ui.shadcn.com/docs/components/badge
+  - `Avatar`: https://ui.shadcn.com/docs/components/avatar
+  - `Separator`: https://ui.shadcn.com/docs/components/separator
+  - Install: `npx shadcn@latest init` + `npx shadcn@latest add button card badge avatar separator`
+
+- **Remix Icon (React)**: https://remixicon.com/ + npm: `@remixicon/react`
+  - GitHub, LinkedIn, Instagram, X icons
+
+- **Framer Motion**: https://www.framer.com/motion/
+  - npm: `framer-motion`
+  - Used for: Ethereal Shadow animation
+
+- **next-themes**: https://github.com/pacocourse/next-themes
+  - npm: `next-themes`
+  - Used for: dark/light mode toggle
+
+### Fonts
+- **Inter**: https://fonts.google.com/specimen/Inter
+  - Via: `next/font/google`
+- **JetBrains Mono**: https://fonts.google.com/specimen/JetBrains+Mono
+  - Via: `next/font/google`
+
 ## Components & Locations
 
 | Component | Location | Source | Used In |
@@ -16,8 +49,8 @@
 | `Badge` | `src/components/ui/badge.tsx` | Shadcn CLI | page.tsx, project-card.tsx |
 | `Avatar` | `src/components/ui/avatar.tsx` | Shadcn CLI | page.tsx |
 | `Separator` | `src/components/ui/separator.tsx` | Shadcn CLI | page.tsx |
-| `ThemeProvider` | `src/app/theme-provider.tsx` | Custom | layout.tsx |
-| `ThemeToggle` | `src/components/theme-toggle.tsx` | Custom | page.tsx |
+| `ThemeProvider` | `src/app/theme-provider.tsx` | Custom (next-themes) | layout.tsx |
+| `ThemeToggle` | `src/components/theme-toggle.tsx` | Custom (Remix Icons) | page.tsx |
 | `SocialButtons` | `src/components/social-buttons.tsx` | Custom (Remix Icons) | page.tsx |
 | `ProjectCard` | `src/components/project-card.tsx` | Custom (Remix Icons) | page.tsx |
 
