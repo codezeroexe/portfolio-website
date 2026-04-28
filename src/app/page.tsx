@@ -1,22 +1,19 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Separator } from "@/components/ui/separator"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { SocialButtons } from "@/components/social-buttons"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Separator } from "@/components/ui/separator";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { SocialButtons } from "@/components/social-buttons";
 import { ProjectCard } from "@/components/project-card";
 import { EtheralShadow } from "@/components/ui/etheral-shadow";
-
-
-
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
-      {/* Full-screen animated background - behind everything */}
+      {/* Animated background */}
       <EtheralShadow
         color="rgba(128, 128, 128, 1)"
         animation={{ scale: 100, speed: 90 }}
@@ -25,7 +22,7 @@ export default function Home() {
         style={{ zIndex: -10 }}
       />
 
-      {/* Hero Section - full page height, centered on top of background */}
+      {/* Hero Section */}
       <section className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center px-4">
         <Avatar className="h-32 w-32 mb-6">
           <AvatarImage src="https://github.com/shadcn.png" alt="Hari" />
@@ -117,5 +114,5 @@ export default function Home() {
         </div>
       </footer>
     </main>
-  )
+  );
 }

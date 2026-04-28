@@ -3,31 +3,11 @@
 import React, { useRef, useId, useEffect } from "react";
 import { animate, useMotionValue, AnimationPlaybackControls } from "framer-motion";
 
-interface ResponsiveImage {
-  src: string;
-  alt?: string;
-  srcSet?: string;
-}
-
-interface AnimationConfig {
-  preview?: boolean;
-  scale: number;
-  speed: number;
-}
-
-interface NoiseConfig {
-  opacity: number;
-  scale: number;
-}
-
 interface EtheralShadowProps {
-  type?: "preset" | "custom";
-  presetIndex?: number;
-  customImage?: ResponsiveImage;
-  sizing?: "fill" | "stretch";
   color?: string;
-  animation?: AnimationConfig;
-  noise?: NoiseConfig;
+  animation?: { scale: number; speed: number };
+  noise?: { opacity: number; scale: number };
+  sizing?: "fill" | "stretch";
   style?: React.CSSProperties;
   className?: string;
 }
@@ -46,9 +26,7 @@ function mapRange(
 
 const useInstanceId = (): string => {
   const id = useId();
-  const cleanId = id.replace(/:/g, "");
-  const instanceId = `shadowoverlay-${cleanId}`;
-  return instanceId;
+  return `shadowoverlay-${id.replace(/:/g, "")}`;
 };
 
 export function EtheralShadow({
@@ -57,7 +35,7 @@ export function EtheralShadow({
   animation,
   noise,
   style,
-  className
+  className,
 }: EtheralShadowProps) {
   const id = useInstanceId();
   const animationEnabled = animation && animation.scale > 0;
@@ -70,28 +48,21 @@ export function EtheralShadow({
 
   useEffect(() => {
     if (feColorMatrixRef.current && animationEnabled) {
-      if (hueRotateAnimation.current) {
-        hueRotateAnimation.current.stop();
-      }
+      if (hueRotateAnimation.current) hueRotateAnimation.current.stop();
       hueRotateMotionValue.set(0);
       hueRotateAnimation.current = animate(hueRotateMotionValue, 360, {
         duration: animationDuration / 25,
         repeat: Infinity,
         repeatType: "loop",
-        repeatDelay: 0,
         ease: "linear",
-        delay: 0,
         onUpdate: (value: number) => {
           if (feColorMatrixRef.current) {
             feColorMatrixRef.current.setAttribute("values", String(value));
           }
-        }
+        },
       });
-
       return () => {
-        if (hueRotateAnimation.current) {
-          hueRotateAnimation.current.stop();
-        }
+        if (hueRotateAnimation.current) hueRotateAnimation.current.stop();
       };
     }
   }, [animationEnabled, animationDuration, hueRotateMotionValue]);
@@ -104,14 +75,14 @@ export function EtheralShadow({
         position: "fixed",
         inset: 0,
         zIndex: -10,
-        ...style
+        ...style,
       }}
     >
       <div
         style={{
           position: "absolute",
           inset: -displacementScale,
-          filter: animationEnabled ? `url(#${id}) blur(4px)` : "none"
+          filter: animationEnabled ? `url(#${id}) blur(4px)` : "none",
         }}
       >
         {animationEnabled && (
@@ -131,23 +102,11 @@ export function EtheralShadow({
                   type="hueRotate"
                   values="180"
                 />
-                <feColorMatrix
-                  in="dist"
-                  result="circulation"
-                  type="matrix"
-                  values="4 0 0 0 1  4 0 0 0 1  4 0 0 0 1  1 0 0 0 0"
-                />
                 <feDisplacementMap
                   in="SourceGraphic"
-                  in2="circulation"
-                  scale={displacementScale}
-                  result="dist"
-                />
-                <feDisplacementMap
-                  in="dist"
                   in2="undulation"
                   scale={displacementScale}
-                  result="output"
+                  result="dist"
                 />
               </filter>
             </defs>
@@ -161,25 +120,9 @@ export function EtheralShadow({
             maskRepeat: "no-repeat",
             maskPosition: "center",
             width: "100%",
-            height: "100%"
+            height: "100%",
           }}
         />
-
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            textAlign: "center",
-            zIndex: 10
-          }}
-        >
-          <h1 className="md:text-7xl text-6xl lg:text-8xl font-bold text-center text-foreground relative z-20">
-            Etheral Shadows
-          </h1>
-        </div>
-
         {noise && noise.opacity > 0 && (
           <div
             style={{
@@ -188,7 +131,7 @@ export function EtheralShadow({
               backgroundImage: `url("https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png")`,
               backgroundSize: noise.scale * 200,
               backgroundRepeat: "repeat",
-              opacity: noise.opacity / 2
+              opacity: noise.opacity / 2,
             }}
           />
         )}
