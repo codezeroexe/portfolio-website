@@ -43,6 +43,14 @@ const projects: Project[] = [
     githubUrl: "https://github.com/codezeroexe/algo-visualizer",
     publishedAt: new Date("2025-06-20"),
   },
+  {
+    id: "4",
+    headline: "SymbiPath",
+    excerpt: "Symbiosis path management system for academic and research collaboration",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Full-Stack"],
+    githubUrl: "https://github.com/codezeroexe/symbiPath",
+    publishedAt: new Date("2025-11-15"),
+  },
 ];
 
 export default function Home() {
