@@ -23,7 +23,7 @@ export default function Home() {
         sizing="fill"
       />
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-24 md:py-32 flex flex-col items-center text-center">
+      <section className="container mx-auto px-4 flex flex-col items-center justify-center min-h-screen text-center">
         <Avatar className="h-32 w-32 mb-6">
           <AvatarImage src="https://github.com/shadcn.png" alt="Hari" />
           <AvatarFallback className="text-4xl">H</AvatarFallback>
