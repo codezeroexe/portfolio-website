@@ -6,9 +6,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SocialButtons } from "@/components/social-buttons";
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 
-interface GitHubRepo {
+interface Project {
   id: string;
   name: string;
   description: string;
@@ -17,19 +17,40 @@ interface GitHubRepo {
   liveUrl: string;
 }
 
-export default function Home() {
-  const [repos, setRepos] = useState<GitHubRepo[]>([]);
-  const [loading, setLoading] = useState(true);
+const projects: Project[] = [
+  {
+    id: "1",
+    name: "Neural Fraud Detector v2",
+    description: "AI-powered fraud detection system using neural networks and deep learning",
+    tags: ["Python", "TensorFlow", "AI/ML", "Neural Networks"],
+    githubUrl: "https://github.com/codezeroexe/neural-fraud-detector-v2",
+    liveUrl: "https://example.com",
+  },
+  {
+    id: "2",
+    name: "Walking Sim",
+    description: "Interactive walking simulator built with modern web technologies",
+    tags: ["JavaScript", "Three.js", "WebGL", "Game Dev"],
+    githubUrl: "https://github.com/codezeroexe/walking-sim",
+    liveUrl: "https://example.com",
+  },
+  {
+    id: "3",
+    name: "Algo Visualizer",
+    description: "Interactive algorithm visualization tool for learning data structures and algorithms",
+    tags: ["React", "TypeScript", "D3.js", "Education"],
+    githubUrl: "https://github.com/codezeroexe/algo-visualizer",
+    liveUrl: "https://example.com",
+  },
+];
 
-  useEffect(() => {
-    fetch("/api/github")
-      .then((res) => res.json())
-      .then((data) => {
-        setRepos(data.projects || []);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
+export default function Home() {
+  const projectsRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
+
+  const scrollTo = (ref: React.RefObject<HTMLElement | null>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <main className="relative min-h-screen">
@@ -46,8 +67,8 @@ export default function Home() {
             Full-Stack Developer & Designer building modern web experiences
           </p>
           <div className="flex gap-4">
-            <Button onClick={() => window.location.href = '#projects'}>View My Work</Button>
-            <Button variant="outline" onClick={() => window.location.href = '#contact'}>Get In Touch</Button>
+            <Button onClick={() => scrollTo(projectsRef)}>View My Work</Button>
+            <Button variant="outline" onClick={() => scrollTo(contactRef)}>Get In Touch</Button>
             <ThemeToggle />
           </div>
         </section>
@@ -77,44 +98,29 @@ export default function Home() {
         <Separator />
 
         {/* Projects Section */}
-        <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
+        <section id="projects" ref={projectsRef} className="container mx-auto px-4 py-16 md:py-24">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             GitHub <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Projects</span>
           </h2>
-          {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="border border-[#EAEAEA] rounded-lg p-8 bg-white dark:bg-[#1A1A1A]">
-                  <div className="h-6 w-48 bg-muted animate-pulse rounded mb-4" />
-                  <div className="h-4 bg-muted animate-pulse rounded mb-4" />
-                  <div className="flex gap-2">
-                    <div className="h-6 w-16 bg-muted animate-pulse rounded-full" />
-                    <div className="h-6 w-20 bg-muted animate-pulse rounded-full" />
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((repo) => (
+              <div key={repo.id} className="border border-[#EAEAEA] rounded-lg p-8 bg-white dark:bg-[#1A1A1A] hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold mb-3">{repo.name}</h3>
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{repo.description}</p>
+                <div className="flex gap-2 flex-wrap mb-4">
+                  {repo.tags.map((tag: string) => (
+                    <span key={tag} className="text-xs border border-[#EAEAEA] rounded-full px-3 py-1">{tag}</span>
+                  ))}
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {repos.map((repo) => (
-                <div key={repo.id} className="border border-[#EAEAEA] rounded-lg p-8 bg-white dark:bg-[#1A1A1A] hover:shadow-lg transition-shadow">
-                  <h3 className="text-xl font-bold mb-3">{repo.name}</h3>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{repo.description}</p>
-                  <div className="flex gap-2 flex-wrap mb-4">
-                    {repo.tags.map((tag: string) => (
-                      <span key={tag} className="text-xs border border-[#EAEAEA] rounded-full px-3 py-1">{tag}</span>
-                    ))}
-                  </div>
-                  <div className="flex gap-2">
-                    <a href={repo.githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm hover:underline">GitHub</a>
-                    {repo.liveUrl && (
-                      <a href={repo.liveUrl} target="_blank" rel="noopener noreferrer" className="text-sm hover:underline">Live Demo</a>
-                    )}
-                  </div>
+                <div className="flex gap-2">
+                  <a href={repo.githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm hover:underline">GitHub</a>
+                  {repo.liveUrl && (
+                    <a href={repo.liveUrl} target="_blank" rel="noopener noreferrer" className="text-sm hover:underline">Live Demo</a>
+                  )}
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
         </section>
 
         <Separator />
