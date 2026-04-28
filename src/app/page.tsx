@@ -8,12 +8,20 @@ import { Separator } from "@/components/ui/separator"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { SocialButtons } from "@/components/social-buttons"
 import { ProjectCard } from "@/components/project-card";
+import { EtheralShadow } from "@/components/ui/etheral-shadow";
+
 
 
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
+      <EtheralShadow
+        color="rgba(128, 128, 128, 1)"
+        animation={{ scale: 100, speed: 90 }}
+        noise={{ opacity: 1, scale: 1.2 }}
+        sizing="fill"
+      />
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-24 md:py-32 flex flex-col items-center text-center">
         <Avatar className="h-32 w-32 mb-6">
