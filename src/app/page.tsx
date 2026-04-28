@@ -6,7 +6,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SocialButtons } from "@/components/social-buttons";
-import { ProjectCard } from "@/components/project-card";
 import { useEffect, useState } from "react";
 
 interface GitHubRepo {
@@ -131,9 +130,6 @@ export default function Home() {
           <div className="flex justify-center gap-4">
             <Button onClick={() => window.location.href = 'mailto:sreehari@example.com'}>Email Me</Button>
             <SocialButtons />
-            <Button variant="outline" onClick={() => window.location.href = 'https://www.instagram.com/code.zxro/'}>
-              Instagram
-            </Button>
           </div>
         </section>
 

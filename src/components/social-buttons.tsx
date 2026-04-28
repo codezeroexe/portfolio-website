@@ -11,7 +11,7 @@ import {
 const socials = [
   { name: "GitHub", href: "https://github.com/codezeroexe", icon: RiGithubFill },
   { name: "LinkedIn", href: "https://linkedin.com/in/hari-sreelakam", icon: RiLinkedinFill },
-  { name: "Instagram", href: "https://instagram.com", icon: RiInstagramFill },
+  { name: "Instagram", href: "https://www.instagram.com/code.zxro/", icon: RiInstagramFill },
   { name: "X", href: "https://x.com", icon: RiTwitterXFill },
 ];
 
