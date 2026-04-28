@@ -101,9 +101,9 @@ export function EtheralShadow({
       className={className}
       style={{
         overflow: "hidden",
-        position: "relative",
-        width: "100%",
-        height: "100%",
+        position: "fixed",
+        inset: 0,
+        zIndex: -10,
         ...style
       }}
     >

@@ -16,15 +16,14 @@ import { EtheralShadow } from "@/components/ui/etheral-shadow";
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
-      {/* Full-screen animated background */}
-      <div className="fixed inset-0 -z-10">
-        <EtheralShadow
-          color="rgba(128, 128, 128, 1)"
-          animation={{ scale: 100, speed: 90 }}
-          noise={{ opacity: 1, scale: 1.2 }}
-          sizing="fill"
-        />
-      </div>
+      {/* Full-screen animated background - behind everything */}
+      <EtheralShadow
+        color="rgba(128, 128, 128, 1)"
+        animation={{ scale: 100, speed: 90 }}
+        noise={{ opacity: 1, scale: 1.2 }}
+        sizing="fill"
+        style={{ zIndex: -10 }}
+      />
 
       {/* Hero Section - full page height, centered on top of background */}
       <section className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center px-4">
