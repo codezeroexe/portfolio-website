@@ -6,41 +6,42 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SocialButtons } from "@/components/social-buttons";
+import { ArticleCard } from "@/components/ui/blog-post-card";
 import { useRef } from "react";
 
 interface Project {
   id: string;
-  name: string;
-  description: string;
+  headline: string;
+  excerpt: string;
   tags: string[];
   githubUrl: string;
-  liveUrl: string;
+  publishedAt?: Date;
 }
 
 const projects: Project[] = [
   {
     id: "1",
-    name: "Neural Fraud Detector v2",
-    description: "AI-powered fraud detection system using neural networks and deep learning",
+    headline: "Neural Fraud Detector v2",
+    excerpt: "AI-powered fraud detection system using neural networks and deep learning",
     tags: ["Python", "TensorFlow", "AI/ML", "Neural Networks"],
     githubUrl: "https://github.com/codezeroexe/neural-fraud-detector-v2",
-    liveUrl: "https://example.com",
+    publishedAt: new Date("2025-10-01"),
   },
   {
     id: "2",
-    name: "Walking Sim",
-    description: "Interactive walking simulator built with modern web technologies",
+    headline: "Walking Sim",
+    excerpt: "Interactive walking simulator built with modern web technologies",
     tags: ["JavaScript", "Three.js", "WebGL", "Game Dev"],
     githubUrl: "https://github.com/codezeroexe/walking-sim",
-    liveUrl: "https://example.com",
+    publishedAt: new Date("2025-08-15"),
   },
   {
     id: "3",
-    name: "Algo Visualizer",
-    description: "Interactive algorithm visualization tool for learning data structures and algorithms",
+    headline: "Algo Visualizer",
+    excerpt: "Interactive algorithm visualization tool for learning data structures and algorithms",
     tags: ["React", "TypeScript", "D3.js", "Education"],
     githubUrl: "https://github.com/codezeroexe/algo-visualizer",
-    liveUrl: "https://example.com",
+    publishedAt: new Date("2025-06-20"),
   },
 ];
 
@@ -103,22 +104,23 @@ export default function Home() {
             GitHub <span className="font-[family-name:var(--font-gluten)]" style={{ fontSize: '130%' }}>Projects</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((repo) => (
-              <div key={repo.id} className="border border-[#EAEAEA] rounded-lg p-8 bg-white dark:bg-[#1A1A1A] hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-bold mb-3">{repo.name}</h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{repo.description}</p>
-                <div className="flex gap-2 flex-wrap mb-4">
-                  {repo.tags.map((tag: string) => (
-                    <span key={tag} className="text-xs border border-[#EAEAEA] rounded-full px-3 py-1">{tag}</span>
-                  ))}
-                </div>
-                <div className="flex gap-2">
-                  <a href={repo.githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm hover:underline">GitHub</a>
-                  {repo.liveUrl && (
-                    <a href={repo.liveUrl} target="_blank" rel="noopener noreferrer" className="text-sm hover:underline">Live Demo</a>
-                  )}
-                </div>
-              </div>
+            {projects.map((project) => (
+              <a
+                key={project.id}
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:shadow-lg transition-shadow"
+              >
+                <ArticleCard
+                  headline={project.headline}
+                  excerpt={project.excerpt}
+                  tag={project.tags[0]}
+                  readingTime={300}
+                  writer="codezeroexe"
+                  publishedAt={project.publishedAt}
+                />
+              </a>
             ))}
           </div>
         </section>
