@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SocialButtons } from "@/components/social-buttons";
 import { ArticleCard } from "@/components/ui/blog-post-card";
@@ -105,8 +104,6 @@ export default function Home() {
           </div>
         </section>
 
-        <Separator />
-
         {/* About Section */}
         <section id="about" className="container mx-auto px-4 py-16 md:py-24">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
@@ -126,8 +123,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        <Separator />
 
         {/* Skills Section */}
         <section id="skills" className="container mx-auto px-4 py-16 md:py-24">
@@ -152,8 +147,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        <Separator />
 
         {/* Projects Section */}
         <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
@@ -181,8 +174,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        <Separator />
 
         {/* Contact Section */}
         <section id="contact" className="container mx-auto px-4 py-16 md:py-24 text-center">
