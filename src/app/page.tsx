@@ -65,7 +65,7 @@ export default function Home() {
         {/* Hero Shader Background */}
         <div className="fixed inset-0 -z-10">
           <MeshGradient
-            colors={['#8b0000', '#dc2626', '#ff4444', '#dc143c', '#b22222', '#000000', '#ffffff']}
+            colors={['#8b0000', '#dc2626', '#ff4444', '#dc143c', '#b22222', '#000000', '#1a1a1a', '#333333', '#0a0a0a']}
             distortion={1}
             swirl={0.8}
             speed={0.2}
