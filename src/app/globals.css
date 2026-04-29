@@ -77,10 +77,32 @@
   * {
     @apply border-border outline-ring/50;
   }
-body {
-  background-color: hsl(var(--background));
-}
+  body {
+    background-color: hsl(var(--background));
+  }
   html {
     @apply font-sans;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    opacity: 0.3;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    opacity: 0.5;
+  }
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+  .animate-bounce-slow {
+    animation: bounce 3s ease-in-out infinite;
   }
 }
