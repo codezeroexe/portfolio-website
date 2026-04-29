@@ -104,6 +104,32 @@ export default function Home() {
 
         <Separator />
 
+        {/* Skills Section */}
+        <section id="skills" className="container mx-auto px-4 py-16 md:py-24">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+            My <span className="font-[var(--font-gluten)]" style={{ fontSize: '130%' }}>Skills</span>
+          </h2>
+          <div className="max-w-4xl mx-auto space-y-8">
+            {[
+              { category: "Languages", skills: ["Python", "JavaScript", "TypeScript", "Java", "SQL"] },
+              { category: "Frontend", skills: ["React", "Next.js", "HTML/CSS", "Tailwind CSS", "Framer Motion"] },
+              { category: "AI/ML", skills: ["TensorFlow", "Neural Networks", "Deep Learning", "Data Analysis", "Scikit-learn"] },
+              { category: "Tools & Design", skills: ["Git/GitHub", "Web Design", "UI/UX", "PostgreSQL", "Three.js"] },
+            ].map(({ category, skills }) => (
+              <div key={category}>
+                <h3 className="text-lg font-semibold mb-3 text-muted-foreground">{category}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill) => (
+                    <Badge key={skill} variant="secondary" className="text-sm py-1 px-3">{skill}</Badge>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <Separator />
+
         {/* Projects Section */}
         <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
