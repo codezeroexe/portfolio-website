@@ -72,7 +72,7 @@ export default function Home() {
             style={{ width: '100%', height: '100%' }}
           />
           {/* Subtle overlay - let shader show */}
-          <div className="absolute inset-0 bg-background/70" />
+          <div className="absolute inset-0 bg-background/45" />
         </div>
 
         {/* Hero Section */}
