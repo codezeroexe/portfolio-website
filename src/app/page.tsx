@@ -135,7 +135,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
             My <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Skills</span>
           </h2>
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="max-w-4xl mx-auto space-y-8 text-center">
             {[
               { category: "Languages", skills: ["Python", "JavaScript", "TypeScript", "Java", "SQL"] },
               { category: "Frontend", skills: ["React", "Next.js", "HTML/CSS", "Tailwind CSS", "Framer Motion"] },
@@ -144,7 +144,7 @@ export default function Home() {
             ].map(({ category, skills }) => (
               <div key={category}>
                 <h3 className="text-lg font-semibold mb-3 text-foreground/80">{category}</h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 justify-center">
                   {skills.map((skill) => (
                     <Badge key={skill} variant="secondary" className="text-sm py-1 px-3">{skill}</Badge>
                   ))}
