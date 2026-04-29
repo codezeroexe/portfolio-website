@@ -112,7 +112,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
              About <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Me</span>
           </h2>
-          <div className="max-w-3xl mx-auto text-lg text-muted-foreground leading-relaxed">
+          <div className="max-w-3xl mx-auto text-lg text-foreground/80 leading-relaxed">
             <p className="mb-4">
               I'm a {new Date().getFullYear() - 2006}-year-old developer from Kerala, South India, currently pursuing Artificial Intelligence at Symbiosis, Pune. My work sits at the intersection of creative expression and technical precision.
             </p>
@@ -142,7 +142,7 @@ export default function Home() {
               { category: "Tools & Design", skills: ["Git/GitHub", "Web Design", "UI/UX", "PostgreSQL", "Three.js", "Digital Art"] },
             ].map(({ category, skills }) => (
               <div key={category}>
-                <h3 className="text-lg font-semibold mb-3 text-muted-foreground">{category}</h3>
+                <h3 className="text-lg font-semibold mb-3 text-foreground/80">{category}</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.map((skill) => (
                     <Badge key={skill} variant="secondary" className="text-sm py-1 px-3">{skill}</Badge>
@@ -189,7 +189,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
              Get In <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Touch</span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-foreground/80 mb-8 max-w-xl mx-auto">
             Reach out on LinkedIn, check my GitHub and Instagram, or drop an email.
           </p>
           <div className="flex justify-center gap-4">
@@ -200,7 +200,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="border-t">
-          <div className="container mx-auto px-4 py-6 text-center text-sm text-muted-foreground">
+          <div className="container mx-auto px-4 py-6 text-center text-sm text-foreground/80">
             © {new Date().getFullYear()} Sreehari. All rights reserved.
           </div>
         </footer>
