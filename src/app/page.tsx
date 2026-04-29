@@ -118,7 +118,7 @@ export default function Home() {
               <Button onClick={() => scrollTo('projects')} className="hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-shadow">View My Work</Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="outline" onClick={() => scrollTo('contact')} className="border-white/30 text-white hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-shadow">Get In Touch</Button>
+              <Button variant="outline" onClick={() => scrollTo('contact')} className={`border-white/30 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-shadow ${isDark ? 'text-white' : 'text-foreground'}`}>Get In Touch</Button>
             </motion.div>
             {/* Concept 6: Theme Toggle Rotate */}
             <motion.div whileHover={{ rotate: 180 }} transition={{ duration: 0.3 }}>
