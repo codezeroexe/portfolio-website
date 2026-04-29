@@ -9,6 +9,7 @@ import { ArticleCard } from "@/components/ui/blog-post-card";
 import { MeshGradient } from "@paper-design/shaders-react";
 import { useRef } from "react";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 interface Project {
   id: string;
@@ -91,29 +92,52 @@ export default function Home() {
           />
         </div>
 
-        {/* Hero Section */}
-        <section className="flex flex-col items-center justify-center min-h-screen text-center px-4">
-          <Avatar className="h-64 w-64 mb-6">
-            <AvatarImage src="/avatar.jpg" alt="Sreehari" />
-            <AvatarFallback className="text-8xl">S</AvatarFallback>
-          </Avatar>
+        {/* Hero Section - Concept 4: Scroll Fade-In */}
+        <motion.section
+          className="flex flex-col items-center justify-center min-h-screen text-center px-4 relative z-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Concept 3: Avatar Hover Pulse */}
+          <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
+            <Avatar className="h-64 w-64 mb-6 hover:ring-4 hover:ring-primary/30 transition-all">
+              <AvatarImage src="/avatar.jpg" alt="Sreehari" />
+              <AvatarFallback className="text-8xl">S</AvatarFallback>
+            </Avatar>
+          </motion.div>
           <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-4">
-             Hi, I'm <span className="[font-family:var(--font-gluten)] text-primary" style={{ fontSize: '130%' }}>Hari</span>
+             Hi, I'm <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Hari</span>
           </h1>
           <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl">
             AI developer & web designer blending code with creative expression.
           </p>
-          <div className="flex gap-4">
-            <Button onClick={() => scrollTo('projects')}>View My Work</Button>
-            <Button variant="outline" onClick={() => scrollTo('contact')}>Get In Touch</Button>
-            <ThemeToggle />
+          <div className="flex gap-4 relative z-10">
+            {/* Concept 1: Button Hover Glow */}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button onClick={() => scrollTo('projects')} className="hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-shadow">View My Work</Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button variant="outline" onClick={() => scrollTo('contact')} className="border-white/30 text-white hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-shadow">Get In Touch</Button>
+            </motion.div>
+            {/* Concept 6: Theme Toggle Rotate */}
+            <motion.div whileHover={{ rotate: 180 }} transition={{ duration: 0.3 }}>
+              <ThemeToggle />
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
 
-        {/* About Section */}
-        <section id="about" className="container mx-auto px-4 py-16 md:py-24">
+        {/* About Section - Concept 4: Scroll Fade-In */}
+        <motion.section
+          id="about"
+          className="container mx-auto px-4 py-16 md:py-24"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-             About <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Me</span>
+            About <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Me</span>
           </h2>
           <div className="max-w-3xl mx-auto text-lg text-foreground/80 leading-relaxed">
             <p className="mb-4">
@@ -125,15 +149,29 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap gap-2 justify-center mt-8">
             {["React", "Next.js", "TypeScript", "Java", "Python", "Web Design", "AI/ML"].map((tech) => (
-              <Badge key={tech} variant="secondary">{tech}</Badge>
+              /* Concept 2: Badge Hover Lift */
+              <motion.div
+                key={tech}
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Badge variant="secondary">{tech}</Badge>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        {/* Skills Section */}
-        <section id="skills" className="container mx-auto px-4 py-16 md:py-24">
+        {/* Skills Section - Concept 4: Scroll Fade-In */}
+        <motion.section
+          id="skills"
+          className="container mx-auto px-4 py-16 md:py-24"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-            My <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Skills</span>
+            My <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Skills</span>
           </h2>
           <div className="max-w-4xl mx-auto space-y-8 text-center">
             {[
@@ -146,54 +184,85 @@ export default function Home() {
                 <h3 className="text-lg font-semibold mb-3 text-foreground/80">{category}</h3>
                 <div className="flex flex-wrap gap-2 justify-center">
                   {skills.map((skill) => (
-                    <Badge key={skill} variant="secondary" className="text-sm py-1 px-3">{skill}</Badge>
+                    /* Concept 2: Badge Hover Lift */
+                    <motion.div
+                      key={skill}
+                      whileHover={{ y: -2 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Badge variant="secondary" className="text-sm py-1 px-3">{skill}</Badge>
+                    </motion.div>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        {/* Projects Section */}
-        <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
+        {/* Projects Section - Concept 4: Scroll Fade-In */}
+        <motion.section
+          id="projects"
+          className="container mx-auto px-4 py-16 md:py-24"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-             GitHub <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Projects</span>
+            GitHub <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Projects</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto auto-rows-fr">
-            {projects.map((project) => (
-              <a
+            {projects.map((project, i) => (
+              <motion.div
                 key={project.id}
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block hover:shadow-lg transition-shadow h-full"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
               >
-                <ArticleCard
-                  headline={project.headline}
-                  excerpt={project.excerpt}
-                  tag={project.tags[0]}
-                  readingTime={300}
-                  writer="codezeroexe"
-                  publishedAt={project.publishedAt}
-                />
-              </a>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block hover:shadow-lg transition-shadow h-full rounded-lg overflow-hidden"
+                >
+                  <ArticleCard
+                    headline={project.headline}
+                    excerpt={project.excerpt}
+                    tag={project.tags[0]}
+                    readingTime={300}
+                    writer="codezeroexe"
+                    publishedAt={project.publishedAt}
+                  />
+                </a>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        {/* Contact Section */}
-        <section id="contact" className="container mx-auto px-4 py-16 md:py-24 text-center">
+        {/* Contact Section - Concept 4: Scroll Fade-In */}
+        <motion.section
+          id="contact"
+          className="container mx-auto px-4 py-16 md:py-24 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-             Get In <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Touch</span>
+            Get In <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Touch</span>
           </h2>
           <p className="text-lg text-foreground/80 mb-8 max-w-xl mx-auto">
             Reach out on LinkedIn, check my GitHub and Instagram, or drop an email.
           </p>
           <div className="flex justify-center gap-4">
-            <Button onClick={() => window.location.href = 'mailto:sreeharisreelakam06@gmail.com'}>Email Me</Button>
+            {/* Concept 1: Button Hover Glow */}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button onClick={() => window.location.href = 'mailto:sreeharisreelakam06@gmail.com'} className="hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-shadow">Email Me</Button>
+            </motion.div>
             <SocialButtons />
           </div>
-        </section>
+        </motion.section>
 
         {/* Footer */}
         <footer className="border-t">
