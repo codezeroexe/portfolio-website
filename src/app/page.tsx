@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SocialButtons } from "@/components/social-buttons";
 import { ArticleCard } from "@/components/ui/blog-post-card";
+import { MeshGradient } from "@paper-design/shaders-react";
 import { useRef } from "react";
 
 interface Project {
@@ -61,6 +62,16 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen">
+        {/* Hero Shader Background */}
+        <div className="fixed inset-0 -z-10">
+          <MeshGradient
+            colors={['#0ea5e9', '#8b5cf6', '#ec4899', '#10b981']}
+            distortion={1}
+            swirl={0.8}
+            speed={0.2}
+          />
+        </div>
+
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center min-h-screen text-center px-4">
           <Avatar className="h-64 w-64 mb-6">

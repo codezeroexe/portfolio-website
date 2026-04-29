@@ -22,6 +22,7 @@
   "homepage": "https://github.com/codezeroexe/portfolio-website#readme",
   "dependencies": {
     "@base-ui/react": "^1.4.1",
+    "@paper-design/shaders-react": "^0.0.76",
     "@remixicon/react": "^4.9.0",
     "@tailwindcss/postcss": "^4.2.4",
     "@types/node": "^25.6.0",
