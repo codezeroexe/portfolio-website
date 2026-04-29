@@ -62,7 +62,7 @@ export default function Home() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
-  const lightColors = ['#3b82f6', '#60a5fa', '#93c5fd', '#dbeafe', '#ffffff', '#bfdbfe'];
+  const lightColors = ['#0c1445', '#1e2a5c', '#1a237e', '#283593', '#303f9f', '#1a237e', '#0d47a1'];
   const darkColors = ['#8b0000', '#dc2626', '#ff4444', '#dc143c', '#b22222', '#000000', '#1a1a1a', '#333333', '#0a0a0a'];
 
   return (
