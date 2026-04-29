@@ -64,30 +64,30 @@ export default function Home() {
   const isDark = theme === 'dark';
 
   const lightColors = ['#0c1445', '#1e2a5c', '#1a237e', '#283593', '#303f9f', '#1a237e', '#0d47a1', '#e3f2fd', '#bbdefb', '#ffffff', '#f8f9fa', '#e8eaf6'];
-  const darkColors = ['#8b0000', '#dc2626', '#ff4444', '#dc143c', '#b22222', '#000000', '#1a1a1a', '#333333', '#0a0a0a'];
+  const darkColors = ['#8b0000', '#dc2626', '#b22222', '#000000', '#1a1a1a'];
 
   return (
     <main className="relative min-h-screen">
         {/* Hero Shader Background - Frosted Glass */}
         <div className="fixed inset-0 -z-10">
-          <div className="absolute inset-[-20%] blur-2xl">
+          <div className="absolute inset-0 blur-2xl">
             <MeshGradient
               colors={isDark ? darkColors : lightColors}
-              distortion={1}
-              swirl={0.8}
-              speed={0.38}
+              distortion={0.3}
+              swirl={0.3}
+              speed={0.15}
               style={{ width: '100%', height: '100%' }}
             />
           </div>
           {/* Frosted glass overlay - theme aware */}
-          <div className={`absolute inset-0 backdrop-blur-xl ${isDark ? 'bg-background/70' : 'bg-background/35'}`} />
-          {/* Grain texture */}
+          <div className={`absolute inset-0 ${isDark ? 'bg-background/70' : 'bg-background/35'}`} />
+          {/* Grain texture - lighter */}
           <div
-            className="absolute inset-0 opacity-20 mix-blend-overlay"
+            className="absolute inset-0 opacity-10 mix-blend-overlay"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
               backgroundRepeat: 'repeat',
-              backgroundSize: '256px 256px',
+              backgroundSize: '128px 128px',
             }}
           />
         </div>
