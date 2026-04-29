@@ -8,6 +8,7 @@ import { SocialButtons } from "@/components/social-buttons";
 import { ArticleCard } from "@/components/ui/blog-post-card";
 import { MeshGradient } from "@paper-design/shaders-react";
 import { useRef } from "react";
+import { useTheme } from "next-themes";
 
 interface Project {
   id: string;
@@ -58,6 +59,11 @@ export default function Home() {
     const el = document.getElementById(id);
     el?.scrollIntoView({ behavior: "smooth" });
   };
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
+  const lightColors = ['#3b82f6', '#60a5fa', '#93c5fd', '#dbeafe', '#ffffff', '#bfdbfe'];
+  const darkColors = ['#8b0000', '#dc2626', '#ff4444', '#dc143c', '#b22222', '#000000', '#1a1a1a', '#333333', '#0a0a0a'];
 
   return (
     <main className="relative min-h-screen">
@@ -65,7 +71,7 @@ export default function Home() {
         <div className="fixed inset-0 -z-10">
           <div className="absolute inset-[-20%] blur-2xl">
             <MeshGradient
-              colors={['#8b0000', '#dc2626', '#ff4444', '#dc143c', '#b22222', '#000000', '#1a1a1a', '#333333', '#0a0a0a']}
+              colors={isDark ? darkColors : lightColors}
               distortion={1}
               swirl={0.8}
               speed={0.2}
