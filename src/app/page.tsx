@@ -95,7 +95,7 @@ export default function Home() {
           <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-4">
              Hi, I'm <span className="[font-family:var(--font-gluten)] text-primary" style={{ fontSize: '130%' }}>Hari</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl">
+          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl">
             AI developer & web designer blending code with creative expression.
           </p>
           <div className="flex gap-4">
