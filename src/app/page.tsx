@@ -79,7 +79,7 @@ export default function Home() {
             />
           </div>
           {/* Frosted glass overlay - theme aware */}
-          <div className={`absolute inset-0 backdrop-blur-xl ${isDark ? 'bg-background/70' : 'bg-background/15'}`} />
+          <div className={`absolute inset-0 backdrop-blur-xl ${isDark ? 'bg-background/70' : 'bg-background/35'}`} />
           {/* Grain texture */}
           <div
             className="absolute inset-0 opacity-20 mix-blend-overlay"
