@@ -75,7 +75,7 @@ export default function Home() {
               colors={isDark ? darkColors : lightColors}
               distortion={1}
               swirl={0.8}
-              speed={0.2}
+              speed={0.38}
               style={{ width: '100%', height: '100%' }}
             />
           </div>
