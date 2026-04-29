@@ -74,8 +74,8 @@ export default function Home() {
             <MeshGradient
               colors={isDark ? darkColors : lightColors}
               distortion={0.3}
-              swirl={0.3}
-              speed={0.15}
+              swirl={0.45}
+              speed={0.38}
               style={{ width: '100%', height: '100%' }}
             />
           </div>
