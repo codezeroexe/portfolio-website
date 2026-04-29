@@ -62,17 +62,28 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen">
-        {/* Hero Shader Background */}
+        {/* Hero Shader Background - Frosted Glass */}
         <div className="fixed inset-0 -z-10">
-          <MeshGradient
-            colors={['#8b0000', '#dc2626', '#ff4444', '#dc143c', '#b22222', '#000000', '#1a1a1a', '#333333', '#0a0a0a']}
-            distortion={1}
-            swirl={0.8}
-            speed={0.2}
-            style={{ width: '100%', height: '100%' }}
+          <div className="absolute inset-[-20%] blur-2xl">
+            <MeshGradient
+              colors={['#8b0000', '#dc2626', '#ff4444', '#dc143c', '#b22222', '#000000', '#1a1a1a', '#333333', '#0a0a0a']}
+              distortion={1}
+              swirl={0.8}
+              speed={0.2}
+              style={{ width: '100%', height: '100%' }}
+            />
+          </div>
+          {/* Frosted glass overlay */}
+          <div className="absolute inset-0 bg-background/50 backdrop-blur-md" />
+          {/* Grain texture */}
+          <div
+            className="absolute inset-0 opacity-20 mix-blend-overlay"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+              backgroundRepeat: 'repeat',
+              backgroundSize: '256px 256px',
+            }}
           />
-          {/* Subtle overlay - let shader show */}
-          <div className="absolute inset-0 bg-background/65" />
         </div>
 
         {/* Hero Section */}
