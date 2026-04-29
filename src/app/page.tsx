@@ -69,9 +69,10 @@ export default function Home() {
             distortion={1}
             swirl={0.8}
             speed={0.2}
+            style={{ width: '100%', height: '100%' }}
           />
-          {/* Transparency overlay - ethereal style */}
-          <div className="absolute inset-0 bg-background/80" />
+          {/* Subtle overlay - let shader show */}
+          <div className="absolute inset-0 bg-background/30" />
         </div>
 
         {/* Hero Section */}
