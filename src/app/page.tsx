@@ -62,7 +62,7 @@ export default function Home() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
-  const lightColors = ['#0c1445', '#1e2a5c', '#1a237e', '#283593', '#303f9f', '#1a237e', '#0d47a1'];
+  const lightColors = ['#0c1445', '#1e2a5c', '#1a237e', '#283593', '#303f9f', '#1a237e', '#0d47a1', '#e3f2fd', '#bbdefb', '#ffffff', '#f8f9fa', '#e8eaf6'];
   const darkColors = ['#8b0000', '#dc2626', '#ff4444', '#dc143c', '#b22222', '#000000', '#1a1a1a', '#333333', '#0a0a0a'];
 
   return (
@@ -78,8 +78,8 @@ export default function Home() {
               style={{ width: '100%', height: '100%' }}
             />
           </div>
-          {/* Frosted glass overlay */}
-          <div className="absolute inset-0 bg-background/30 backdrop-blur-xl" />
+          {/* Frosted glass overlay - theme aware */}
+          <div className={`absolute inset-0 backdrop-blur-xl ${isDark ? 'bg-background/70' : 'bg-background/15'}`} />
           {/* Grain texture */}
           <div
             className="absolute inset-0 opacity-20 mix-blend-overlay"
