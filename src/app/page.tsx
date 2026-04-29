@@ -70,6 +70,8 @@ export default function Home() {
             swirl={0.8}
             speed={0.2}
           />
+          {/* Transparency overlay - ethereal style */}
+          <div className="absolute inset-0 bg-background/80" />
         </div>
 
         {/* Hero Section */}
