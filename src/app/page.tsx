@@ -68,7 +68,7 @@ export default function Home() {
             <AvatarFallback className="text-8xl">S</AvatarFallback>
           </Avatar>
           <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-4">
-             Hi, I'm <span className="font-[var(--font-gluten)] text-primary" style={{ fontSize: '130%' }}>Hari</span>
+             Hi, I'm <span className="[font-family:var(--font-gluten)] text-primary" style={{ fontSize: '130%' }}>Hari</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl">
             AI developer & web designer blending code with creative expression.
@@ -85,7 +85,7 @@ export default function Home() {
         {/* About Section */}
         <section id="about" className="container mx-auto px-4 py-16 md:py-24">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-             About <span className="font-[var(--font-gluten)]" style={{ fontSize: '130%' }}>Me</span>
+             About <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Me</span>
           </h2>
           <div className="max-w-3xl mx-auto text-lg text-muted-foreground leading-relaxed">
             <p className="mb-4">
@@ -107,7 +107,7 @@ export default function Home() {
         {/* Skills Section */}
         <section id="skills" className="container mx-auto px-4 py-16 md:py-24">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-            My <span className="font-[var(--font-gluten)]" style={{ fontSize: '130%' }}>Skills</span>
+            My <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Skills</span>
           </h2>
           <div className="max-w-4xl mx-auto space-y-8">
             {[
@@ -133,7 +133,7 @@ export default function Home() {
         {/* Projects Section */}
         <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-             GitHub <span className="font-[var(--font-gluten)]" style={{ fontSize: '130%' }}>Projects</span>
+             GitHub <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Projects</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto auto-rows-fr">
             {projects.map((project) => (
@@ -162,7 +162,7 @@ export default function Home() {
         {/* Contact Section */}
         <section id="contact" className="container mx-auto px-4 py-16 md:py-24 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-             Get In <span className="font-[var(--font-gluten)]" style={{ fontSize: '130%' }}>Touch</span>
+             Get In <span className="[font-family:var(--font-gluten)]" style={{ fontSize: '130%' }}>Touch</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
             Reach out on LinkedIn, check my GitHub and Instagram, or drop an email.
