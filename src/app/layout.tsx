@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Gluten } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
+import { CursorBlob } from "@/components/cursor-blob";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
            Skip to main content
          </a>
          <ThemeProvider>
+           <CursorBlob />
            {children}
          </ThemeProvider>
        </body>
