@@ -89,7 +89,7 @@ export default function Home() {
          <main id="main-content" className="relative min-h-screen">
         {/* Hero Shader Background - Frosted Glass */}
         <div className="fixed inset-0 -z-10">
-           <div className="absolute inset-0 blur-2xl [animation:hueShift_20s_ease-in-out_infinite_alternate]">
+           <div className="absolute inset-0 blur-2xl">
              <MeshGradient
               colors={isDark ? darkColors : lightColors}
               distortion={0.3}
@@ -121,12 +121,12 @@ export default function Home() {
         >
           {/* Concept 3: Avatar Hover Pulse */}
           <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
-             <Avatar className="h-40 w-40 md:h-64 md:w-64 mb-6 avatar-ring hover:ring-4 hover:ring-primary/30 transition-all">
+              <Avatar className="h-40 w-40 md:h-64 md:w-64 mb-6 transition-all">
               <AvatarImage src="/avatar.jpg" alt="Sreehari" />
               <AvatarFallback className="text-8xl">S</AvatarFallback>
             </Avatar>
           </motion.div>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-4 glow-text">
+          <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-4">
               Hi, I'm <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Hari</span>
            </h1>
           <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl">
@@ -175,7 +175,7 @@ export default function Home() {
                 whileHover={{ y: -2 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                 <Badge variant="secondary" className="badge-glow">{tech}</Badge>
+                  <Badge variant="secondary">{tech}</Badge>
               </motion.div>
             ))}
           </div>
@@ -190,8 +190,8 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 glow-text">
-             About <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Me</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+             My <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Skills</span>
            </h2>
            <div className="max-w-4xl mx-auto space-y-8 text-center">
             {[
@@ -210,7 +210,7 @@ export default function Home() {
                        whileHover={{ y: -2 }}
                        transition={{ type: "spring", stiffness: 300 }}
                      >
-                       <Badge variant="secondary" className="text-sm py-1 px-3 badge-glow">{skill}</Badge>
+                       <Badge variant="secondary" className="text-sm py-1 px-3">{skill}</Badge>
                      </motion.div>
                    ))}
                  </div>
@@ -228,7 +228,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 glow-text">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
              GitHub <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Projects</span>
            </h2>
            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto auto-rows-fr">
@@ -260,7 +260,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 glow-text">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
              Get In <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Touch</span>
            </h2>
            <p className="text-lg text-foreground/80 mb-8 max-w-xl mx-auto">
