@@ -103,9 +103,9 @@ export default function Home() {
         </div>
 
         {/* Hero Section - Concept 4: Scroll Fade-In */}
-         <motion.section
+        <motion.section
           id="hero"
-          className="flex flex-col items-center justify-center min-h-screen text-center px-4 relative z-10"
+          className="flex flex-col items-center justify-center min-h-screen text-center px-4 relative z-10 gap-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -141,24 +141,24 @@ export default function Home() {
         {/* About Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="about"
-          className="min-h-screen flex flex-col justify-center container mx-auto px-4 py-16 md:py-24"
+          className="min-h-screen flex flex-col justify-center container mx-auto px-4 py-20 md:py-32 gap-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+           <h2 className="text-5xl md:text-6xl font-bold text-center mb-16">
              About <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Me</span>
            </h2>
-           <div className="max-w-3xl mx-auto text-lg text-foreground/80 leading-relaxed">
-             <p className="mb-4">
+           <div className="max-w-3xl mx-auto text-xl md:text-2xl text-foreground/80 leading-relaxed space-y-6">
+             <p>
                I'm a {new Date().getFullYear() - 2006}-year-old developer from Kerala, South India, currently pursuing Artificial Intelligence at Symbiosis, Pune. My work sits at the intersection of creative expression and technical precision.
              </p>
              <p>
                I build with Python, JavaScript, Java, and React — focusing on AI systems, neural networks, deep learning, web development, and web design. Digital art and design are where I experiment with the creative side of code, bringing visual ideas to life through technology.
              </p>
            </div>
-           <div className="flex flex-wrap gap-2 justify-center mt-8">
+           <div className="flex flex-wrap gap-3 justify-center mt-12">
             {["React", "Next.js", "TypeScript", "Java", "Python", "Web Design", "AI/ML"].map((tech) => (
               /* Concept 2: Badge Hover Lift */
               <motion.div
@@ -175,7 +175,7 @@ export default function Home() {
         {/* Skills Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="skills"
-          className="min-h-screen flex flex-col justify-center container mx-auto px-4 py-16 md:py-24"
+          className="container mx-auto px-4 py-16 md:py-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -213,7 +213,7 @@ export default function Home() {
         {/* Projects Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="projects"
-          className="min-h-screen flex flex-col justify-center container mx-auto px-4 py-16 md:py-24"
+          className="container mx-auto px-4 py-16 md:py-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -245,7 +245,7 @@ export default function Home() {
         {/* Contact Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="contact"
-          className="min-h-screen flex flex-col items-center justify-center container mx-auto px-4 py-16 md:py-24 text-center"
+          className="container mx-auto px-4 py-16 md:py-24 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
