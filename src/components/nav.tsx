@@ -29,7 +29,7 @@ export function Nav() {
 
   return (
     <nav className="sticky top-0 z-50 border-b bg-background/70 backdrop-blur-md">
-      <div className="container flex gap-4 py-3 px-4 items-center justify-center">
+      <div className="w-full max-w-4xl mx-auto flex gap-6 md:gap-10 py-4 px-4 items-center justify-center">
         {sections.map(({ id, label }) => (
           <button
             key={id}

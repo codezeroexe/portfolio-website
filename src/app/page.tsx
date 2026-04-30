@@ -141,24 +141,24 @@ export default function Home() {
         {/* About Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="about"
-          className="container mx-auto px-4 py-16 md:py-24"
+          className="min-h-screen flex items-center container mx-auto px-4 py-20 md:py-32"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-            About <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Me</span>
-          </h2>
-          <div className="max-w-3xl mx-auto text-lg text-foreground/80 leading-relaxed">
-            <p className="mb-4">
-              I'm a {new Date().getFullYear() - 2006}-year-old developer from Kerala, South India, currently pursuing Artificial Intelligence at Symbiosis, Pune. My work sits at the intersection of creative expression and technical precision.
-            </p>
-            <p>
-              I build with Python, JavaScript, Java, and React — focusing on AI systems, neural networks, deep learning, web development, and web design. Digital art and design are where I experiment with the creative side of code, bringing visual ideas to life through technology.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2 justify-center mt-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+             About <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Me</span>
+           </h2>
+           <div className="max-w-3xl mx-auto text-lg md:text-xl text-foreground/80 leading-relaxed space-y-6">
+             <p>
+               I'm a {new Date().getFullYear() - 2006}-year-old developer from Kerala, South India, currently pursuing Artificial Intelligence at Symbiosis, Pune. My work sits at the intersection of creative expression and technical precision.
+             </p>
+             <p>
+               I build with Python, JavaScript, Java, and React — focusing on AI systems, neural networks, deep learning, web development, and web design. Digital art and design are where I experiment with the creative side of code, bringing visual ideas to life through technology.
+             </p>
+           </div>
+           <div className="flex flex-wrap gap-3 justify-center mt-12">
             {["React", "Next.js", "TypeScript", "Java", "Python", "Web Design", "AI/ML"].map((tech) => (
               /* Concept 2: Badge Hover Lift */
               <motion.div
@@ -175,16 +175,16 @@ export default function Home() {
         {/* Skills Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="skills"
-          className="container mx-auto px-4 py-16 md:py-24"
+          className="min-h-screen flex items-center container mx-auto px-4 py-20 md:py-32"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-            My <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Skills</span>
-          </h2>
-          <div className="max-w-4xl mx-auto space-y-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+             My <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Skills</span>
+           </h2>
+           <div className="max-w-4xl mx-auto space-y-12 text-center">
             {[
               { category: "Languages", skills: ["Python", "JavaScript", "TypeScript", "Java", "SQL"] },
               { category: "Frontend", skills: ["React", "Next.js", "HTML/CSS", "Tailwind CSS", "Framer Motion"] },
@@ -192,8 +192,8 @@ export default function Home() {
               { category: "Tools & Design", skills: ["Git/GitHub", "Web Design", "UI/UX", "PostgreSQL", "Three.js", "Digital Art"] },
             ].map(({ category, skills }) => (
               <div key={category}>
-                <h3 className="text-lg font-semibold mb-3 text-foreground/80">{category}</h3>
-                <div className="flex flex-wrap gap-2 justify-center">
+                 <h3 className="text-lg font-semibold mb-6 text-foreground/80">{category}</h3>
+                 <div className="flex flex-wrap gap-3 justify-center">
                   {skills.map((skill) => (
                     /* Concept 2: Badge Hover Lift */
                     <motion.div
@@ -213,16 +213,16 @@ export default function Home() {
         {/* Projects Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="projects"
-          className="container mx-auto px-4 py-16 md:py-24"
+          className="min-h-screen flex items-center container mx-auto px-4 py-20 md:py-32"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            GitHub <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Projects</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto auto-rows-fr">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+             GitHub <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Projects</span>
+           </h2>
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto auto-rows-fr">
             {projects.map((project, i) => (
               <motion.div
                 key={project.id}
@@ -245,19 +245,19 @@ export default function Home() {
         {/* Contact Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="contact"
-          className="container mx-auto px-4 py-16 md:py-24 text-center"
+          className="min-h-screen flex items-center container mx-auto px-4 py-20 md:py-32 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Get In <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Touch</span>
-          </h2>
-          <p className="text-lg text-foreground/80 mb-8 max-w-xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+             Get In <span className="[font-family:var(--font-gluten)] text-primary drop-shadow-[0_0_10px_rgba(var(--primary)/0.5)]" style={{ fontSize: '130%' }}>Touch</span>
+           </h2>
+           <p className="text-lg md:text-xl text-foreground/80 mb-12 max-w-xl mx-auto">
             Reach out on LinkedIn, check my GitHub and Instagram, or drop an email.
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-6">
             {/* Concept 1: Button Hover Glow */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button onClick={() => window.location.href = 'mailto:sreeharisreelakam06@gmail.com'} className="hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-shadow">Email Me</Button>
