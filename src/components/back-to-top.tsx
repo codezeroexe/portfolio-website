@@ -17,8 +17,9 @@ export function BackToTop() {
 
   return (
     <Button
+      variant="outline"
       size="icon"
-      className="fixed bottom-4 right-4 z-50 rounded-full shadow-lg"
+      className="fixed bottom-4 right-4 z-50 rounded-full shadow-lg border-primary/30 bg-background/80 backdrop-blur"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Back to top"
     >

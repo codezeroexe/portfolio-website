@@ -15,7 +15,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ headline, excerpt, tags, githubUrl, liveUrl }: ProjectCardProps) {
   return (
-    <Card className="flex flex-col hover:shadow-lg transition-all duration-300">
+    <Card className="flex flex-col h-full hover:shadow-lg transition-all duration-300">
       <CardHeader>
         <CardTitle className="text-xl">{headline}</CardTitle>
         <CardDescription className="text-base">{excerpt}</CardDescription>
