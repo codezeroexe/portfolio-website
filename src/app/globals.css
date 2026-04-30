@@ -84,6 +84,10 @@
     @apply font-sans;
     scrollbar-width: thin;
     scrollbar-color: var(--primary) transparent;
+    scroll-snap-type: y mandatory;
+  }
+  section[id] {
+    scroll-snap-align: center;
   }
   ::-webkit-scrollbar {
     width: 8px;
