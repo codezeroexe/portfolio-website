@@ -105,4 +105,10 @@
   .animate-bounce-slow {
     animation: bounce 3s ease-in-out infinite;
   }
+
+  /* Global focus ring for keyboard navigation */
+  *:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
 }

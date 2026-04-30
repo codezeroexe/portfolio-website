@@ -1,22 +1,24 @@
+"use client";
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { RiGithubFill, RiExternalLinkFill } from "@remixicon/react";
 
-interface Project {
-  title: string;
-  description: string;
+interface ProjectCardProps {
+  headline: string;
+  excerpt: string;
   tags: string[];
+  githubUrl: string;
   liveUrl?: string;
-  githubUrl?: string;
 }
 
-export function ProjectCard({ title, description, tags, liveUrl, githubUrl }: Project) {
+export function ProjectCard({ headline, excerpt, tags, githubUrl, liveUrl }: ProjectCardProps) {
   return (
     <Card className="flex flex-col hover:shadow-lg transition-all duration-300">
       <CardHeader>
-        <CardTitle className="text-xl">{title}</CardTitle>
-        <CardDescription className="text-base">{description}</CardDescription>
+        <CardTitle className="text-xl">{headline}</CardTitle>
+        <CardDescription className="text-base">{excerpt}</CardDescription>
       </CardHeader>
       <CardContent className="flex-1">
         <div className="flex flex-wrap gap-2">

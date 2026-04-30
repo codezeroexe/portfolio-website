@@ -5,9 +5,10 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SocialButtons } from "@/components/social-buttons";
-import { ArticleCard } from "@/components/ui/blog-post-card";
+import { ProjectCard } from "@/components/project-card";
+import { BackToTop } from "@/components/back-to-top";
 import { MeshGradient } from "@paper-design/shaders-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 
@@ -62,12 +63,21 @@ export default function Home() {
   };
   const { theme } = useTheme();
   const isDark = theme === 'dark';
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const dynamicSpeed = 0.38 + Math.min(scrollY * 0.0003, 0.5);
 
   const lightColors = ['#0c1445', '#1e2a5c', '#1a237e', '#283593', '#303f9f', '#1a237e', '#0d47a1', '#e3f2fd', '#bbdefb', '#ffffff', '#f8f9fa', '#e8eaf6'];
   const darkColors = ['#8b0000', '#dc2626', '#b22222', '#000000', '#1a1a1a'];
 
   return (
-    <main className="relative min-h-screen">
+         <main id="main-content" className="relative min-h-screen">
         {/* Hero Shader Background - Frosted Glass */}
         <div className="fixed inset-0 -z-10">
           <div className="absolute inset-0 blur-2xl">
@@ -75,7 +85,7 @@ export default function Home() {
               colors={isDark ? darkColors : lightColors}
               distortion={0.3}
               swirl={0.45}
-              speed={0.38}
+              speed={dynamicSpeed}
               style={{ width: '100%', height: '100%' }}
             />
           </div>
@@ -93,7 +103,8 @@ export default function Home() {
         </div>
 
         {/* Hero Section - Concept 4: Scroll Fade-In */}
-        <motion.section
+         <motion.section
+          id="hero"
           className="flex flex-col items-center justify-center min-h-screen text-center px-4 relative z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,7 +112,7 @@ export default function Home() {
         >
           {/* Concept 3: Avatar Hover Pulse */}
           <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
-            <Avatar className="h-64 w-64 mb-6 hover:ring-4 hover:ring-primary/30 transition-all">
+             <Avatar className="h-40 w-40 md:h-64 md:w-64 mb-6 hover:ring-4 hover:ring-primary/30 transition-all">
               <AvatarImage src="/avatar.jpg" alt="Sreehari" />
               <AvatarFallback className="text-8xl">S</AvatarFallback>
             </Avatar>
@@ -220,21 +231,12 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block hover:shadow-lg transition-shadow h-full rounded-lg overflow-hidden"
-                >
-                  <ArticleCard
-                    headline={project.headline}
-                    excerpt={project.excerpt}
-                    tag={project.tags[0]}
-                    readingTime={300}
-                    writer="codezeroexe"
-                    publishedAt={project.publishedAt}
-                  />
-                </a>
+                <ProjectCard
+                  headline={project.headline}
+                  excerpt={project.excerpt}
+                  tags={project.tags}
+                  githubUrl={project.githubUrl}
+                />
               </motion.div>
             ))}
           </div>
@@ -269,7 +271,8 @@ export default function Home() {
           <div className="container mx-auto px-4 py-6 text-center text-sm text-foreground/80">
             © {new Date().getFullYear()} Sreehari. All rights reserved.
           </div>
-        </footer>
-    </main>
+         </footer>
+         <BackToTop />
+     </main>
   );
 }

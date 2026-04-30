@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Gluten } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
+import { Nav } from "@/components/nav";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -26,9 +27,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${gluten.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col font-sans">
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+       <body className="min-h-full flex flex-col font-sans">
+         <a
+           href="#main-content"
+           className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 z-50 bg-background p-2 text-primary"
+         >
+           Skip to main content
+         </a>
+         <ThemeProvider>
+           <Nav />
+           {children}
+         </ThemeProvider>
+       </body>
     </html>
   );
 }
