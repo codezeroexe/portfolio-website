@@ -141,7 +141,7 @@ export default function Home() {
         {/* About Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="about"
-          className="container mx-auto px-4 py-16 md:py-24"
+          className="min-h-screen flex flex-col justify-center container mx-auto px-4 py-16 md:py-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -175,7 +175,7 @@ export default function Home() {
         {/* Skills Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="skills"
-          className="container mx-auto px-4 py-16 md:py-24"
+          className="min-h-screen flex flex-col justify-center container mx-auto px-4 py-16 md:py-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -213,7 +213,7 @@ export default function Home() {
         {/* Projects Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="projects"
-          className="container mx-auto px-4 py-16 md:py-24"
+          className="min-h-screen flex flex-col justify-center container mx-auto px-4 py-16 md:py-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -245,7 +245,7 @@ export default function Home() {
         {/* Contact Section - Concept 4: Scroll Fade-In */}
         <motion.section
           id="contact"
-          className="container mx-auto px-4 py-16 md:py-24 text-center"
+          className="min-h-screen flex flex-col items-center justify-center container mx-auto px-4 py-16 md:py-24 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
